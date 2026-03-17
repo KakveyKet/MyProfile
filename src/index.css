@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
+
+
+* {
+  font-family: "Kantumruy Pro", sans-serif;
+  font-optical-sizing: auto;
+  /* font-weight: <weight>; */
+  line-height: 1;
+  /* tracking width */
+  letter-spacing: 0.025em;
+  font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -10,7 +10,7 @@
     </div>
 
     <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-zinc-900 leading-[1.1] mb-6">
-      Building robust <br class="hidden md:block"/>
+      Building digital & <br class="hidden md:block"/>
       <span class="text-zinc-400">digital solutions.</span>
     </h1>
     
