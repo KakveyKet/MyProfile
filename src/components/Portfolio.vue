@@ -70,7 +70,7 @@ const projects = [
     link: '#',
     img: "https://res.cloudinary.com/dvljcimlz/image/upload/v1773715112/Screenshot_2026-03-17_093819_uidoms.png"
   },
-   {
+  {
     title: 'Digital Content',
     type: 'Digital Marketing',
     description: 'Post and Advice about the web development and also the technology to the Facebook page to help the people who want to learn about web development and technology.',
@@ -78,70 +78,109 @@ const projects = [
     link: '#',
     img: "https://res.cloudinary.com/dvljcimlz/image/upload/v1773718409/copy_of_photo_2026-03-17_10-31-32_pceeus_5f53ad.jpg"
   },
+  {
+    title: 'ERP RPA System',
+    type: 'Tool',
+    description: 'A powerful tool for automatic data entry and auto process download.',
+    tags: ['Vue.js', 'Vuetify', 'Python', 'Django'],
+    link: '#',
+    img: "https://res.cloudinary.com/dvljcimlz/image/upload/v1773737767/Screenshot_2026-03-17_155539_igvilo.png"
+  },
+  {
+    title: 'DSV RPA System',
+    type: 'Tool',
+    description: 'A powerful tool for automatic data entry and auto process download invoice from DSV forwarder company.',
+    tags: ['Vue.js', 'Tailwind CSS', 'Python', 'Django'],
+    link: '#',
+    img: "https://res.cloudinary.com/dvljcimlz/image/upload/v1773738140/Screenshot_2026-03-17_160144_ksipef.png"
+  },
+  {
+    title: 'PO data auto integration System',
+    type: 'Tool',
+    description: 'A powerful tool for automatic data integration from the PO data to the system for the company.',
+    tags: ['Vue.js', 'Vuetify', 'TypeScript', 'Django'],
+    link: '#',
+    img: "https://res.cloudinary.com/dvljcimlz/image/upload/v1773737585/Screenshot_2026-03-17_155218_rkbmhc.png"
+  },
 ]
 </script>
 
 <template>
-  <section id="projects" class="scroll-mt-32" ref="portfolioSection">
-    
+  <section id="projects" class="scroll-mt-24 sm:scroll-mt-32" ref="portfolioSection">
+
     <!-- Section Header with Animation -->
     <div 
-      class="mb-16 opacity-0"
-      :class="{ 'animate-slide-up': isVisible }"
+      class="mb-12 sm:mb-16 opacity-0" 
+      :class="{ 'animate-slide-up': isVisible }" 
       style="animation-delay: 0ms;"
     >
-      <h2 class="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-3">Selected Work</h2>
-      <h3 class="text-3xl font-bold text-zinc-900">Featured Projects.</h3>
+      <h2 class="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2 sm:mb-3">Selected Work</h2>
+      <h3 class="text-3xl sm:text-4xl font-extrabold text-zinc-900 tracking-tight">Featured Projects.</h3>
     </div>
 
-    <!-- Projects Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Projects Grid (Pinterest / Minimalist Overlay Style) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
       <a 
         v-for="(project, index) in projects" 
         :key="index" 
         :href="project.link" 
         target="_blank"
-        class="group flex flex-col h-full bg-white rounded-2xl shadow-sm hover:shadow-xl border border-zinc-200/60 overflow-hidden hover:-translate-y-2 transition-all duration-300 opacity-0"
-        :class="{ 'animate-slide-up': isVisible }"
-        :style="{ animationDelay: `${index * 150 + 150}ms` }"
+        class="group relative flex flex-col h-[400px] sm:h-[480px] w-full rounded-[2.5rem] bg-zinc-100 shadow-md hover:shadow-2xl hover:shadow-zinc-300/50 overflow-hidden transition-all duration-500 hover:-translate-y-2 opacity-0"
+        :class="{ 'animate-slide-up': isVisible }" 
+        :style="{ animationDelay: `${(index % 3) * 150 + 150}ms` }"
       >
-        <!-- Image Area -->
-        <div class="h-56 bg-zinc-100 relative overflow-hidden border-b border-zinc-100">
-          <!-- Dark overlay on hover -->
-          <div class="absolute inset-0 bg-zinc-900/0 group-hover:bg-zinc-900/10 transition-colors duration-300 z-10"></div>
-          
-          <div class="w-full h-full flex items-center justify-center text-zinc-300 bg-zinc-50">
-            <!-- Fallback Icon if no image -->
-            <svg v-if="!project.img || project.img === 'null'" class="w-10 h-10 group-hover:scale-110 transition-transform duration-500"
-              fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
-              </path>
+        
+        <!-- Background Image Area (Edge-to-Edge) -->
+        <div class="absolute inset-0 w-full h-full">
+          <!-- Fallback Icon if no image -->
+          <div v-if="!project.img || project.img === 'null'" class="w-full h-full flex items-center justify-center bg-zinc-200 text-zinc-400">
+            <svg class="w-16 h-16 group-hover:scale-110 transition-transform duration-700 ease-out" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
             </svg>
-            <!-- Actual Project Image -->
-            <img v-else :src="project.img" :alt="project.title"
-              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out">
+          </div>
+          <!-- Actual Project Image -->
+          <img v-else :src="project.img" :alt="project.title" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700 ease-in-out">
+        </div>
+
+        <!-- Gradient Overlay (Darkens the bottom for text readability) -->
+        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/95 via-zinc-900/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+
+        <!-- Top Right Action Button (Like the reference image's heart/link icons) -->
+        <div class="absolute top-6 right-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
+          <div class="bg-white/20 backdrop-blur-md p-3 rounded-full text-white hover:bg-white hover:text-zinc-900 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
           </div>
         </div>
 
-        <!-- Typography & Content -->
-        <div class="p-6 flex-1 flex flex-col">
-          <p class="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">{{ project.type }}</p>
-          <h4 class="text-xl font-bold text-zinc-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
-            {{ project.title }}
-          </h4>
-          <p class="text-zinc-500 text-sm font-light mb-6 flex-1 line-clamp-3">
-            {{ project.description }}
-          </p>
+        <!-- Typography & Content Overlay (Anchored to bottom) -->
+        <div class="absolute inset-x-0 bottom-0 p-6 sm:p-8 z-20 flex flex-col justify-end">
+          
+          <!-- Inner wrapper for slide-up reveal effect -->
+          <div class="transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+            
+            <p class="text-[10px] sm:text-xs font-bold text-blue-400 uppercase tracking-widest mb-2">{{ project.type }}</p>
+            <h4 class="text-2xl sm:text-3xl font-bold text-white mb-3 leading-snug drop-shadow-sm">
+              {{ project.title }}
+            </h4>
+            
+            <!-- Description (Revealed on hover) -->
+            <p class="text-zinc-300 text-sm sm:text-base font-light leading-relaxed mb-6 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+              {{ project.description }}
+            </p>
 
-          <!-- Tags -->
-          <div class="flex flex-wrap gap-2 mt-auto pt-4 border-t border-zinc-50">
-            <span v-for="tag in project.tags" :key="tag"
-              class="text-xs font-medium text-zinc-600 bg-zinc-100 border border-zinc-200/60 px-2.5 py-1 rounded-md">
-              {{ tag }}
-            </span>
+            <!-- Tags (Revealed on hover) -->
+            <div class="flex flex-wrap gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-150">
+              <span v-for="tag in project.tags" :key="tag"
+                class="text-[10px] sm:text-xs font-medium text-white bg-white/20 backdrop-blur-md border border-white/10 px-3 py-1.5 rounded-full tracking-wide">
+                {{ tag }}
+              </span>
+            </div>
+
           </div>
         </div>
+
       </a>
     </div>
   </section>
@@ -152,8 +191,9 @@ const projects = [
 @keyframes slideUpFade {
   from {
     opacity: 0;
-    transform: translateY(30px) scale(0.95);
+    transform: translateY(40px) scale(0.98);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -161,6 +201,6 @@ const projects = [
 }
 
 .animate-slide-up {
-  animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: slideUpFade 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 </style>

@@ -27,7 +27,7 @@ const skillCategories = [
     skills: [
       { name: 'Vue.js', icon: 'vuedotjs' },
       { name: 'React', icon: 'react' },
-      { name: 'JavaScript (ES6+)', icon: 'javascript' },
+      { name: 'JavaScript', icon: 'javascript' },
       { name: 'Tailwind CSS', icon: 'tailwindcss' },
       { name: 'HTML5/CSS3', icon: 'html5' }
     ]
@@ -49,7 +49,7 @@ const skillCategories = [
     skills: [
       { name: 'Git & GitHub', icon: 'github' },
       { name: 'Figma', icon: 'figma' },
-      { name: 'System Automation', icon: 'gnubash' },
+      { name: 'System Auto', icon: 'gnubash' },
       { name: 'Agile/Scrum', icon: 'jira' }
     ]
   },
@@ -67,44 +67,58 @@ const skillCategories = [
 </script>
 
 <template>
-  <section id="skills" class="scroll-mt-32" ref="skillsSection">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
+  <section id="skills" class="scroll-mt-24 sm:scroll-mt-32" ref="skillsSection">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
       
-      <!-- Section Header -->
-      <div 
-        class="lg:col-span-4 opacity-0"
-        :class="{ 'animate-slide-up': isVisible }"
-        style="animation-delay: 0ms;"
-      >
-        <h2 class="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-3">Expertise</h2>
-        <h3 class="text-3xl font-bold text-zinc-900">Technical Arsenal.</h3>
+      <!-- Left Column: Section Header (Sticky on Desktop) -->
+      <div class="lg:col-span-4 lg:sticky lg:top-32 relative">
+        <div 
+          class="opacity-0"
+          :class="{ 'animate-slide-up': isVisible }"
+          style="animation-delay: 0ms;"
+        >
+          <h2 class="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-3">Expertise</h2>
+          <h3 class="text-3xl sm:text-4xl font-extrabold text-zinc-900 tracking-tight">Technical Arsenal.</h3>
+          
+          <p class="mt-6 text-zinc-500 font-light leading-relaxed max-w-sm">
+            The programming languages, frameworks, and tools I leverage to build robust, scalable, and automated digital products.
+          </p>
+          
+          <!-- Decorative subtle line -->
+          <div class="hidden lg:block w-12 h-1 bg-zinc-200 mt-8 rounded-full"></div>
+        </div>
       </div>
 
-      <!-- Skills Grid -->
-      <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-10">
+      <!-- Right Column: Skills Grid -->
+      <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        
         <div 
           v-for="(category, index) in skillCategories" 
           :key="category.title"
-          class="opacity-0"
+          class="p-6 sm:p-8 rounded-3xl bg-white border border-zinc-200/60 shadow-sm hover:shadow-xl hover:shadow-zinc-200/50 transition-all duration-500 opacity-0 group"
           :class="{ 'animate-slide-up': isVisible }"
-          :style="{ animationDelay: `${index * 150 + 100}ms` }"
+          :style="{ animationDelay: `${index * 150 + 150}ms` }"
         >
-          <h4 class="text-sm font-semibold text-zinc-900 border-b border-zinc-200 pb-2 mb-4">{{ category.title }}</h4>
+          <div class="flex items-center mb-6">
+            <h4 class="text-lg font-bold text-zinc-900">{{ category.title }}</h4>
+            <div class="flex-1 h-px bg-zinc-100 ml-4"></div>
+          </div>
           
-          <ul class="flex flex-wrap gap-2.5">
+          <ul class="flex flex-wrap gap-2.5 sm:gap-3">
             <li 
               v-for="(skill, skillIndex) in category.skills" 
               :key="skill.name"
-              class="opacity-0 flex items-center gap-2.5 px-3 py-1.5 bg-white border border-zinc-200 rounded-lg text-sm font-medium text-zinc-600 hover:text-zinc-900 hover:border-zinc-300 transition-all cursor-default shadow-sm hover:shadow-md hover:-translate-y-1"
+              class="opacity-0 flex items-center gap-2.5 px-3.5 py-2 bg-zinc-50/80 border border-zinc-200/80 rounded-xl text-sm font-semibold text-zinc-600 hover:text-blue-600 hover:bg-white hover:border-blue-200 hover:shadow-sm transition-all duration-300 cursor-default hover:-translate-y-0.5"
               :class="{ 'animate-slide-up': isVisible }"
               :style="{ animationDelay: `${(index * 150) + (skillIndex * 50) + 300}ms` }"
             >
               <!-- Pulls the SVG icon from simpleicons.org colored to zinc-600 (52525b) -->
-              <img :src="`https://cdn.simpleicons.org/${skill.icon}/52525b`" class="w-4 h-4" :alt="skill.name" />
+              <img :src="`https://cdn.simpleicons.org/${skill.icon}/52525b`" class="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity" :alt="skill.name" />
               {{ skill.name }}
             </li>
           </ul>
         </div>
+        
       </div>
 
     </div>
@@ -116,7 +130,7 @@ const skillCategories = [
 @keyframes slideUpFade {
   from {
     opacity: 0;
-    transform: translateY(30px) scale(0.95);
+    transform: translateY(30px) scale(0.98);
   }
   to {
     opacity: 1;
@@ -125,6 +139,6 @@ const skillCategories = [
 }
 
 .animate-slide-up {
-  animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: slideUpFade 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 </style>

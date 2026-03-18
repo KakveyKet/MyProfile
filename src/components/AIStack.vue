@@ -51,41 +51,47 @@ const aiTools = [
 </script>
 
 <template>
-  <section id="ai-stack" class="scroll-mt-32" ref="aiSection">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
+  <section id="ai-stack" class="scroll-mt-24 sm:scroll-mt-32" ref="aiSection">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
       
-      <!-- Section Header -->
-      <div 
-        class="lg:col-span-4 opacity-0"
-        :class="{ 'animate-slide-up': isVisible }"
-        style="animation-delay: 0ms;"
-      >
-        <h2 class="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-3">Workflow</h2>
-        <h3 class="text-3xl font-bold text-zinc-900">AI Stack.</h3>
-        <p class="mt-4 text-zinc-500 font-light leading-relaxed max-w-sm">
-          Leveraging cutting-edge artificial intelligence and automation triggers to accelerate development and streamline complex processes.
-        </p>
+      <!-- Left Column: Section Header (Sticky on Desktop) -->
+      <div class="lg:col-span-4 lg:sticky lg:top-32 relative">
+        <div 
+          class="opacity-0"
+          :class="{ 'animate-slide-up': isVisible }"
+          style="animation-delay: 0ms;"
+        >
+          <h2 class="text-xs font-bold text-zinc-400 uppercase tracking-widest mb-3">Workflow</h2>
+          <h3 class="text-3xl sm:text-4xl font-extrabold text-zinc-900 tracking-tight">AI Stack.</h3>
+          
+          <p class="mt-6 text-zinc-500 font-light leading-relaxed max-w-sm">
+            Leveraging cutting-edge artificial intelligence and automation triggers to accelerate development and streamline complex processes.
+          </p>
+          
+          <!-- Decorative subtle line -->
+          <div class="hidden lg:block w-12 h-1 bg-zinc-200 mt-8 rounded-full"></div>
+        </div>
       </div>
 
-      <!-- AI Tools Grid -->
-      <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <!-- Right Column: AI Tools Grid -->
+      <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
         <div 
           v-for="(tool, index) in aiTools" 
           :key="tool.name"
-          class="opacity-0 flex items-start p-5 bg-white border border-zinc-200 rounded-2xl shadow-sm hover:shadow-md hover:border-zinc-300 hover:-translate-y-1 transition-all cursor-default group"
+          class="opacity-0 flex flex-col items-start p-6 sm:p-8 bg-white border border-zinc-200/60 rounded-3xl shadow-sm hover:shadow-xl hover:shadow-zinc-200/50 hover:border-zinc-300 hover:-translate-y-1.5 transition-all duration-500 cursor-default group"
           :class="{ 'animate-slide-up': isVisible }"
-          :style="{ animationDelay: `${index * 150 + 100}ms` }"
+          :style="{ animationDelay: `${index * 150 + 150}ms` }"
         >
-          <!-- Icon Box -->
-          <div class="p-3 rounded-xl bg-zinc-50 border border-zinc-100 mr-4 group-hover:bg-zinc-100 transition-colors">
+          <!-- Premium Icon Box -->
+          <div class="mb-6 p-4 rounded-2xl bg-zinc-50 border border-zinc-100/80 group-hover:bg-blue-50 group-hover:border-blue-100 transition-colors duration-500 shadow-sm">
             <!-- Pulls the SVG icon from simpleicons.org colored to zinc-600 (52525b) -->
-            <img :src="`https://cdn.simpleicons.org/${tool.icon}/52525b`" class="w-6 h-6" :alt="tool.name" />
+            <img :src="`https://cdn.simpleicons.org/${tool.icon}/52525b`" class="w-7 h-7 opacity-70 group-hover:opacity-100 transition-opacity duration-300" :alt="tool.name" />
           </div>
           
           <!-- Details -->
           <div>
-            <h4 class="text-zinc-900 font-semibold mb-1">{{ tool.name }}</h4>
-            <p class="text-zinc-500 text-sm font-light leading-relaxed">{{ tool.description }}</p>
+            <h4 class="text-xl font-bold text-zinc-900 mb-2 group-hover:text-blue-600 transition-colors">{{ tool.name }}</h4>
+            <p class="text-zinc-500 text-sm sm:text-base font-light leading-relaxed">{{ tool.description }}</p>
           </div>
         </div>
       </div>
@@ -99,7 +105,7 @@ const aiTools = [
 @keyframes slideUpFade {
   from {
     opacity: 0;
-    transform: translateY(30px) scale(0.95);
+    transform: translateY(30px) scale(0.98);
   }
   to {
     opacity: 1;
@@ -108,6 +114,6 @@ const aiTools = [
 }
 
 .animate-slide-up {
-  animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: slideUpFade 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 </style>

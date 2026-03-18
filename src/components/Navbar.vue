@@ -45,7 +45,7 @@ const closeMenu = () => {
       </div>
       
       <!-- Desktop CTA Button -->
-      <a href="#contact" class="hidden lg:inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium text-white bg-zinc-900 rounded-full hover:bg-zinc-800 transition-colors">
+      <a href="https://t.me/VKak_vey" target="_blank" class="hidden lg:inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium text-white bg-zinc-900 rounded-full hover:bg-zinc-800 transition-colors">
         Let's Talk
       </a>
 
