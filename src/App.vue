@@ -9,7 +9,7 @@ import Portfolio from './components/Portfolio.vue'
 import Contact from './components/Contact.vue'
 import Footer from './components/Footer.vue'
 import AIStack from './components/AIStack.vue'
-
+import Pricing from './components/Pricing.vue'
 // --- Auto-Typing Background Logic ---
 const typingSnippets = ref([
   {
@@ -115,6 +115,7 @@ onMounted(() => {
       <Skills />
       <AIStack />
       <Timeline />
+      <Pricing/>
       <Portfolio />
       <Contact />
     </main>

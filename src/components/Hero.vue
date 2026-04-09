@@ -1,6 +1,7 @@
 <script setup>
-// You can replace this URL with your actual professional headshot or a custom cover image
-const coverImage = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+// REPLACE THIS URL WITH YOUR ACTUAL PROFESSIONAL HEADSHOT
+// You can upload your photo to Cloudinary (like your project images) and paste the link here.
+const profileImage = "https://res.cloudinary.com/dvljcimlz/image/upload/v1775697459/Brown_Classy_Men_Facebook_Profile_Picture_yurhoh.png"
 </script>
 
 <template>
@@ -38,20 +39,20 @@ const coverImage = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ix
         </div>
       </div>
 
-      <!-- Right Column: Cover Image & Visuals -->
+      <!-- Right Column: Profile Image & Visuals -->
       <div class="lg:col-span-5 relative mt-10 lg:mt-0 animate-fade-in-up" style="animation-delay: 200ms;">
         
         <!-- Abstract Glowing Background Behind Image -->
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-100/50 rounded-full mix-blend-multiply filter blur-[80px] opacity-70 z-0 pointer-events-none"></div>
 
-        <!-- Main Cover Container -->
-        <div class="relative z-10 w-full aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-zinc-200/50 shadow-2xl group">
+        <!-- Main Profile Image Container -->
+        <div class="relative z-10 w-full aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-zinc-200/50 shadow-2xl group bg-zinc-100">
           
-          <!-- Image Overlay Gradient for depth -->
-          <div class="absolute inset-0 bg-gradient-to-tr from-zinc-900/40 via-transparent to-transparent z-10 pointer-events-none transition-opacity duration-500 group-hover:opacity-70"></div>
+          <!-- Image Overlay Gradient (Lightened for portraits) -->
+          <div class="absolute inset-0 bg-gradient-to-tr from-zinc-900/20 via-transparent to-transparent z-10 pointer-events-none transition-opacity duration-500 group-hover:opacity-40"></div>
           
           <img 
-            :src="coverImage" 
+            :src="profileImage" 
             alt="Kakvey - Full Stack Developer" 
             class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
           />
